@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<style>
+    body{
+        background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRspb9eRimU6QeNBdT3tGa-AqyktujRGfuUCQ&usqp=CAU");
+        background-size: 100%;
+        background-repeat: no-repeat;
+    }
+</style>
+<body>
+<!--<header th:insert="/blocks/header :: header"></header>-->
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white">
+    <h2 class="my-0 mr-md-auto font-weight-normal">Warehouse</h2>
+    <nav class="my-2 my-md-0 mr-md-3">
+        <form action="/product/bexruz/search" class="navbar-search pull-left">
+            <input name="name" th:method="get" type="text" class="search-query"
+                   placeholder="Search">
+            <button type="submit">Search</button>
+        </form>
+        <a class="p-2 text-dark" href="/product/bexruz/add">Product add</a>
+        <a class="p-2 text-dark" href="/category/bexruz">Katalog</a>
+        <a class="p-2 text-dark" href="/product/bexruz">Products</a>
+        <a class="p-2 text-dark" href="/warehouse/bexruz">Dashboard</a>
+        <a class="p-2 text-dark" href="/first">Home</a>
+    </nav>
+</div>
+
+
+<div class="container mt-5 mb-5 ">
+    <h1>Product Detail</h1>
+    <div class="alert alert-info mt-2">
+        <h2 th:text="${product.getName()}"/>
+        <h5 th:text="${product.getCategory()}"/>
+
+        <a th:href="'/product/bexruz/edit/'+${product.id}" class="btn btn-success">Edit</a><br>
+        <form th:action="'/product/bexruz/delete/'+${product.id}" method="get"><br>
+            <button class="btn btn-danger" type="submit">Delete</button>
+        </form>
+    </div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body><!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<!--<header th:insert="/blocks/header :: header"></header>-->
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white">
+    <h2 class="my-0 mr-md-auto font-weight-normal">Warehouse</h2>
+    <nav class="my-2 my-md-0 mr-md-3">
+        <form action="/product/bexruz/search" class="navbar-search pull-left">
+            <input name="name" th:method="get" type="text" class="search-query"
+                   placeholder="Search">
+            <button type="submit">Search</button>
+        </form>
+        <a class="p-2 text-dark" href="/category/bexruz">Katalog</a>
+        <a class="p-2 text-dark" href="/warehouse/bexruz">Dashboard</a>
+        <a class="p-2 text-dark" href="/bexruz/products">Products</a>
+        <a class="p-2 text-dark" href="/first">Home</a>
+    </nav>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+            <h1 class="text-center"> Edit Category </h1>
+            <div class="card-body">
+                <form th:action="@{/category/bexruz/edit/{id}(id=${category.id})}" th:object="${category}"
+                      method="POST">
+                    <div class="form-group">
+                        <label> Category New Name: </label>
+                        <input
+                                type="text"
+                                name="name"
+                                th:field="*{name}"
+                                class="form-control"
+                                placeholder="Enter Category New  Name"
+                        />
+                    </div>
+                    <div class="col-sm-5">
+                        <label>Active:</label>
+                        <input class="form-check-input m-2 h5" th:field="*{active}" type="checkbox">
+                    </div>
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-primary w-100">
+                            Submit
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
+</body>
+</html>

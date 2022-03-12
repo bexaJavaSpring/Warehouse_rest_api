@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<!--<header th:insert="/blocks/header :: header"></header>-->
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white">
+    <h2 class="my-0 mr-md-auto font-weight-normal">Warehouse</h2>
+    <nav class="my-2 my-md-0 mr-md-3">
+        <form action="/product/bexruz/search" class="navbar-search pull-left">
+            <input name="name" th:method="get" type="text" class="search-query"
+                   placeholder="Search">
+            <button type="submit">Search</button>
+        </form>
+        <a class="p-2 text-dark" href="/input/bexruz">Input</a>
+        <a class="p-2 text-dark" href="/warehouse/bexruz">Dashboard</a>
+        <a class="p-2 text-dark" href="/category/bexruz">Katalog</a>
+        <a class="p-2 text-dark" href="/product/bexruz">Products</a>
+        <a class="p-2 text-dark" href="/first">Home</a>
+    </nav>
+</div>
+
+
+<div class="container mt-5 mb-5 ">
+    <h1>InputProduct Detail</h1>
+    <div class="alert alert-info mt-2">
+        <label>Name:</label>
+        <h2 th:text="${inpro.product.name}"/>
+        <br>
+        <label>Price:</label>
+        <h5 th:text="${inpro.price}"/>
+        <br>
+        <label>Taminotchi:</label>
+        <h5 th:text="${inpro.input.suplier.name}"/>
+        <br>
+        <label>Warehouse name:</label>
+        <h5 th:text="${inpro.input.warehouse.name}"/>
+        <br>
+        <a th:href="'/input/bexruz/edit/'+${inpro.id}" class="btn btn-success">Edit</a><br>
+        <form th:action="'/input/bexruz/delete/'+${inpro.id}+''" method="post"><br>
+            <button class="btn btn-danger" type="submit">Delete</button>
+        </form><br>
+    </div>
+</div>
+
+
+</body>
+</html>

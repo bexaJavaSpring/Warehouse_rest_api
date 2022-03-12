@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Warehouse Edit</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+</head>
+<body>
+<br>
+<br>
+<div class = "container">
+    <div class = "row">
+        <div class ="text-center left-pill mt-5">
+            <h1 class = "text-white"> Edit Warehouse </h1>
+            <form th:action="@{/warehouse/bexruz/edit/{id}(id=${warehouse.id})}" th:object = "${warehouse}" method="POST">
+                <div class ="form-group">
+                    <label> warehouse New Name </label>
+                    <br><br>
+                    <input
+                            type = "text"
+                            name = "name"
+                            th:field = "*{name}"
+                            class = "form-control"
+                            placeholder="Enter name"
+                    />
+                </div>
+                <br>
+                <div class="col-sm-5">
+                    <label>Active:</label>
+                    <input class="form-check-input m-2 h5" th:field="*{active}" type="checkbox">
+                </div>
+                <div class = "box-footer">
+                    <button type="submit" class = "btn btn-primary w-100">
+                        Save
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<!--<header th:insert="/blocks/header :: header"></header>-->
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white">
+    <h2 class="my-0 mr-md-auto font-weight-normal">Warehouse</h2>
+    <nav class="my-2 my-md-0 mr-md-3">
+        <form action="/product/bexruz/search" class="navbar-search pull-left">
+            <input name="name" th:method="get" type="text" class="search-query"
+                   placeholder="Search">
+            <button type="submit">Search</button>
+        </form>
+        <a class="p-2 text-dark" href="/first">Home</a>
+        <a class="p-2 text-dark" href="/input/bexruz">Input</a>
+        <a class="p-2 text-dark" href="/warehouse/bexruz">Dashboard</a>
+        <a class="p-2 text-dark" href="/category/bexruz">Katalog</a>
+    </nav>
+</div>
+
+<div class="container mt-5 mb-5 ">
+    <h1>Add Input Product</h1>
+    <form action="/input/bexruz/add" method="post">
+          <div class="form-group">
+              <label for="productName">Select Product</label>
+              <select class="form-control selectpicker" name="productId" id="productName">
+                  <option value="">product selected</option>
+                  <option th:each="product:${productList}"
+                          th:value="${product.id}"
+                          th:text="${product.name}">
+                  </option>
+              </select>
+          </div>
+          <input type="text" name="price" placeholder="price of input product" class="form-control"><br>
+          <input type="text" name="amount" placeholder="amount of input product" class="form-control"><br>
+          <input type="text" name="facture_number" placeholder="fature number of input product" class="form-control"><br>
+          <input type="date" name="date" placeholder="date of input product" class="form-control"><br>
+          <input type="password" name="code" placeholder="code of input product" class="form-control"><br>
+        <div class="form-group">
+            <label for="warehouse">Select warehouse</label>
+            <select class="form-control selectpicker" name="warehouseId" id="warehouse">
+                <option value="">warehouse selected</option>
+                <option th:each="war : ${warehouseList}"
+                        th:value="${war.id}"
+                        th:text="${war.name}">
+                </option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="suplier">Select Suplier</label>
+            <select class="form-control selectpicker" name="supplierId" id="suplier">
+                <option value=""> suplier selected</option>
+                <option th:each="sup : ${suplierList}"
+                        th:value="${sup.id}"
+                        th:text="${sup.name}">
+                </option>
+            </select>
+        </div>
+<!--        <div class="form-group">-->
+<!--            <label for="currency">Select Currency</label>-->
+<!--            <select class="form-control selectpicker" name="currencyId" id="currency">-->
+<!--                <option value=""> currency selected</option>-->
+<!--                <option th:each="cur : ${currencyList}"-->
+<!--                        th:value="${cur.id}"-->
+<!--                        th:text="${cur.name}">-->
+<!--                </option>-->
+<!--            </select>-->
+<!--        </div>-->
+        <button type="submit" class="btn btn-primary">Add Input Product</button>
+    </form>
+</div>
+
+
+</body>
+</html>

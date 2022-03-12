@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<style>
+    body {
+        background-image: url("https://scargos.com/img/auth-background.jpg");
+        background-size: 100%;
+        background-repeat: no-repeat;
+    }
+    .topnav {
+        overflow: hidden;
+        background-color: #e9e9e9;
+    }
+
+    /* Style the links inside the navigation bar */
+    .topnav a {
+        float: left;
+        display: block;
+        color: black;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+
+    /* Change the color of links on hover */
+    .topnav a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+
+    /* Style the "active" element to highlight the current page */
+    .topnav a.active {
+        background-color: #2196F3;
+        color: white;
+    }
+
+    /* Style the search box inside the navigation bar */
+    .topnav input[type=text] {
+        float: right;
+        padding: 6px;
+        border: none;
+        margin-top: 8px;
+        margin-right: 16px;
+        font-size: 17px;
+    }
+
+    /* When the screen is less than 600px wide, stack the links and the search field vertically instead of horizontally */
+    @media screen and (max-width: 600px) {
+        .topnav a, .topnav input[type=text] {
+            float: none;
+            display: block;
+            text-align: left;
+            width: 100%;
+            margin: 0;
+            padding: 14px;
+        }
+        .topnav input[type=text] {
+            border: 1px solid #ccc;
+        }
+    }
+</style>
+<body>
+<div class="topnav">
+    <h2 class="my-0 mr-md-auto font-weight-normal">Warehouse</h2>
+    <a href="/first">Home</a>
+    <a href="/input/bexruz/add">Input Product Add</a>
+    <a href="/output/bexruz">Output</a>
+    <a href="/supplier/bexruz">Suplier CRUD</a>
+    <a href="/currency/page">Currency CRUD</a>
+    <a href="/product/bexruz">Products</a>
+    <form action="/product/bexruz/search" method="get" class="navbar-search pull-left">
+        <input name="name" th:method="get" type="text" class="search-query" placeholder="Search..">
+        <!--        <button type="submit">search</button>-->
+    </form>
+</div>
+<div class="container mt-5 mb-5 ">
+<!--    <form action="/input/bexruz/search" class="navbar-search pull-left">-->
+<!--        <input name="name" th:method="get" type="text" class="search-query"-->
+<!--               placeholder="Search">-->
+<!--        <button type="submit">Search</button>-->
+<!--    </form>-->
+    <h1 class="text-white"> Input Product</h1>
+    <div class="flex-wrap d-flex">
+        <div th:each="inputpro : ${inputProducts}" class="alert alert-primary mt-2 m-3 col-md-3">
+            <div class="d-flex">
+                <p class="mr-2">Name: </p>
+                <h5 th:text="${inputpro.product.name}"/>
+            </div>
+            <div class="d-flex">
+                <p class="mr-2">Price: </p>
+                <h5 th:text="${inputpro.price}"/>
+            </div>
+            <a th:href="'/input/bexruz/'+${inputpro.id}" class="btn btn-danger">more...</a>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

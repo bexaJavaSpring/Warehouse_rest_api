@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<style>
+    .topnav {
+        overflow: hidden;
+        background-color: #e9e9e9;
+    }
+
+    /* Style the links inside the navigation bar */
+    .topnav a {
+        float: left;
+        display: block;
+        color: black;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+
+    /* Change the color of links on hover */
+    .topnav a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+
+    /* Style the "active" element to highlight the current page */
+    .topnav a.active {
+        background-color: #2196F3;
+        color: white;
+    }
+
+    /* Style the search box inside the navigation bar */
+    .topnav input[type=text] {
+        float: right;
+        padding: 6px;
+        border: none;
+        margin-top: 8px;
+        margin-right: 16px;
+        font-size: 17px;
+    }
+
+    /* When the screen is less than 600px wide, stack the links and the search field vertically instead of horizontally */
+    @media screen and (max-width: 600px) {
+        .topnav a, .topnav input[type=text] {
+            float: none;
+            display: block;
+            text-align: left;
+            width: 100%;
+            margin: 0;
+            padding: 14px;
+        }
+
+        .topnav input[type=text] {
+            border: 1px solid #ccc;
+        }
+    }
+</style>
+<body>
+<div class="topnav">
+    <h2 class="my-0 mr-md-auto font-weight-normal">Warehouse</h2>
+    <a href="/first">Home</a>
+    <a href="/product/bexruz">Products</a>
+    <a href="/category/bexruz">Katalog</a>
+    <!--    <form action="/product/bexruz/search" method="get" class="navbar-search pull-left">-->
+    <!--        <input name="name" th:method="get" type="text" class="search-query" placeholder="Search..">-->
+    <!--        &lt;!&ndash;        <button type="submit">search</button>&ndash;&gt;-->
+    <!--    </form>-->
+</div>
+    <div class="container mt-5 mb-5">
+        <div class="row">
+            <div class="text-center left-pill mt-5">
+                   <h1>Add Product</h1>
+                <form action="/product/bexruz/add" method="post">
+                    <input type="text" name="name" placeholder="name of product" class="form-control"><br>
+                    <div class="form-group">
+                        <label for="category">Select Category</label>
+                        <select class="form-control selectpicker" name="categoryId" id="category">
+                            <option value="">category selected</option>
+                            <option th:each="category : ${categoryList}"
+                                    th:value="${category.id}"
+                                    th:text="${category.name}">
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="measurement">Select Measurement</label>
+                        <select class="form-control selectpicker" name="measurementId" id="measurement">
+                            <option value=""> measurement selected</option>
+                            <option th:each="measurement : ${measurementList}"
+                                    th:value="${measurement.id}"
+                                    th:text="${measurement.name}">
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="attachment">Select Attachment</label>
+                        <select class="form-control selectpicker" name="attachmentId" id="attachment">
+                            <option value="">attachment selected</option>
+                            <option th:each="attachment : ${attachmentList}"
+                                    th:value="${attachment.id}"
+                                    th:text="${attachment.name}">
+                            </option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Product</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,146 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100vh;
+}
+.img-box {
+  background-color: #2e5bff;
+  background-image: url(bexruz.png);
+  background-position: center;
+  background-size: 80%;
+  background-repeat: no-repeat;
+  padding: 2rem 3rem;
+}
+.img-box h2 {
+  color: white;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+.sing-up-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.form-box {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  gap: 1rem;
+}
+h1 {
+  text-align: left;
+  font-weight: 300;
+
+  color: #2e384d;
+}
+.sign-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.4rem;
+}
+
+.sign-nav a {
+  text-decoration: none;
+  padding: 0.1rem 0 0.5rem 0.1rem;
+  color: #2e384dad;
+  border-bottom: 2px solid #e0e7ff;
+}
+.sign-nav .activ {
+  border-bottom: 2px solid #2e5bff;
+  color: #2e384d;
+}
+.sign-nav a:focus {
+  border-bottom: 2px solid #2e5bff;
+  color: #2e384d;
+}
+.sign-nav .activ2 {
+  border-bottom: 2px solid #a99a77;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+}
+label {
+  font-size: 0.9rem;
+  color: #8c98a9;
+}
+input,
+select {
+  border: 1px solid #e0e7ff;
+  border-radius: 5px;
+  background-color: #e0e7ff36;
+  padding: 0.6rem 1rem;
+  font-size: 13px;
+  margin: 0.3rem 0 1rem 0;
+}
+.container2 input,
+.container2 select {
+  background-color: #fff;
+}
+input::placeholder {
+  font-size: 14px;
+}
+.credit-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  width: 100%;
+}
+.credit-card input {
+  width: 100%;
+  padding: 0.6rem 0;
+  text-align: center;
+  font-size: 13px;
+}
+.submit {
+  padding: 0.7rem;
+  background-color: #2e5bff;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 15px;
+}
+p {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #2e384dc2;
+  margin-top: 0.5rem;
+  font-weight: 500;
+}
+a {
+  text-decoration: none;
+  color: #2553f8;
+}
+.quiting a {
+  position: absolute;
+  color: #2e384d;
+  padding: 0.5rem 0.8rem;
+  background-color: #2e384d1c;
+  border-radius: 50%;
+  top: 1rem;
+  right: 2rem;
+}
+.hear span {
+  color: red;
+}
+.container #img-box {
+  background-image: none;
+  background-color: rgba(255, 255, 255, 0);
+}
+.bexruz{
+  width: 140px;
+  height: 40px;
+  border: none;
+  border-radius: 30px;
+  margin-left: 30px;
+}
+navbar-search pull-left {
+  margin-left: 100px;
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<!--<header th:insert="/blocks/header :: header"></header>-->
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white">
+    <h2 class="my-0 mr-md-auto font-weight-normal">Warehouse</h2>
+    <nav class="my-2 my-md-0 mr-md-3">
+        <form action="/product/bexruz/search" class="navbar-search pull-left">
+            <input name="name" th:method="get" type="text" class="search-query"
+                   placeholder="Search">
+            <button type="submit">Search</button>
+        </form>
+        <a class="p-2 text-dark" href="/input/bexruz">Input</a>
+        <a class="p-2 text-dark" href="/warehouse/bexruz">Dashboard</a>
+        <a class="p-2 text-dark" href="/category/bexruz">Katalog</a>
+        <a class="p-2 text-dark" href="/first">Home</a>
+    </nav>
+</div>
+
+<div class="container mt-5 mb-5 ">
+    <h1>Edit Input Product</h1>
+    <div>
+        <form method="post" >
+            <div class="form-group">
+                <label>Select Product</label>
+                <select name="productId">
+                    <option value="">Product selected</option>
+                    <option th:each="product : ${productList}"
+                            th:value="${product.id}"
+                            th:text="${product.name}"
+                            th:selected="${inPro.product.id}">
+                    </option>
+                </select>
+            </div>
+<!--            <label for="">name</label>-->
+<!--            <input type="text" th:value="${inPro.product.name}" name="name" placeholder="name of input product"-->
+
+            <label>price</label>
+            <input type="text" th:value="${inPro.price}" name="price" placeholder="price of input product"
+                   class="form-control"><br>
+            <label>amount</label>
+            <input type="text" th:value="${inPro.amount}" name="amount" placeholder="amount of input product"
+                   class="form-control"><br>
+            <label>facture_number</label>
+            <input type="text" th:value="${inPro.input.facture_number}" name="facture_number" placeholder="facture-number of input product"
+                   class="form-control"><br>
+            <label>Code</label>
+            <input type="password" th:value="${inPro.input.code}" name="code" placeholder="code of input product"
+                   class="form-control"><br>
+            <label>Date</label>
+            <input type="date" th:value="${inPro.input.date}" name="date" placeholder="date of input product"
+                   class="form-control"><br>
+            <label>Choose suplier</label>
+            <select name="supplierId">
+                <option value="">Suplier selected</option>
+                <option th:each="sup : ${suplierList}"
+                        th:value="${sup.id}"
+                        th:text="${sup.name}"
+                        th:selected="${inPro.input.suplier.id}">
+                </option>
+            </select>
+            <label>Choose warehouse</label>
+            <select name="warehouseId">
+                <option value="">Warehouse selected</option>
+                <option th:each="war : ${warehouseList}"
+                        th:value="${war.id}"
+                        th:text="${war.name}"
+                        th:selected="${inPro.input.warehouse.id}">
+                </option>
+            </select>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+    </div>
+</div>
+
+
+</body>
+</html>
